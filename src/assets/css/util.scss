@@ -1,0 +1,828 @@
+:root {
+  --even-row-bg-color: rgb(235, 238, 255);
+}
+
+// Style for Super center
+.super-center {
+  display: grid !important;
+  place-items: center !important;
+  width: 100%;
+  // height: calc(100% - 2rem);
+}
+
+// Style for min, max height
+@for $i from 1 to 1000 {
+  .min-height-#{$i} {
+    min-height: $i + px;
+  }
+  .max-height-#{$i} {
+    max-height: $i + px;
+  }
+  .height-#{$i} {
+    height: $i + px;
+    overflow-y: scroll;
+  }
+  .min-width-#{$i} {
+    min-width: $i + px;
+  }
+}
+
+// style for font size
+@for $i from 1 to 10 {
+  .font-size-#{$i} {
+    font-size: $i + rem;
+  }
+}
+
+// style for margin and Padding
+@for $i from 1 to 100 {
+  .m_#{$i} {
+    margin: $i + px;
+  }
+  .mt_#{$i} {
+    margin-top: $i + px;
+  }
+  .mb_#{$i} {
+    margin-bottom: $i + px;
+  }
+  .ml_#{$i} {
+    margin-left: $i + px;
+  }
+  .mr_#{$i} {
+    margin-right: $i + px;
+  }
+  .mx_#{$i} {
+    margin-left: $i + px;
+    margin-right: $i + px;
+  }
+  .my_#{$i} {
+    margin-top: $i + px;
+    margin-bottom: $i + px;
+  }
+  .p_#{$i} {
+    padding: $i + px;
+  }
+  .pt_#{$i} {
+    padding-top: $i + px;
+  }
+  .pb_#{$i} {
+    padding-bottom: $i + px;
+  }
+  .pl_#{$i} {
+    padding-left: $i + px;
+  }
+  .pr_#{$i} {
+    padding-right: $i + px;
+  }
+  .px_#{$i} {
+    padding-left: $i + px;
+    padding-right: $i + px;
+  }
+  .py_#{$i} {
+    padding-top: $i + px;
+    padding-bottom: $i + px;
+  }
+}
+
+.zindex_1000 {
+  z-index: 1000;
+}
+.zindex_1001 {
+  z-index: 1001;
+}
+.zindex_1002 {
+  z-index: 1002;
+}
+.zindex_1003 {
+  z-index: 1003;
+}
+
+.text_shadow {
+  text-shadow: 2px 2px 5px #000;
+}
+
+.anim_left {
+  position: relative;
+  animation-name: left_slide;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes left_slide {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 2.5px;
+    top: 0px;
+  }
+  50% {
+    left: 5px;
+    top: 0px;
+  }
+  75% {
+    left: 2.5px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+// Style for take dive to forground
+.forground {
+  position: fixed;
+  top: 100px;
+  left: 220px;
+  width: 70%;
+  z-index: 100;
+}
+
+// Style for right slider button
+.right_slider_button {
+  position: fixed;
+  top: 45%;
+  right: -27px;
+  background: #ccc;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  transform: rotate(45deg);
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+.right_slider_button span {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  transform: rotate(-45deg);
+}
+
+// Style for left slider button
+.left_slider_button {
+  position: absolute;
+  top: 45%;
+  left: -27px;
+  background: #ccc;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  transform: rotate(45deg);
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+.left_slider_button span {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  transform: rotate(-45deg);
+}
+
+// Style for onclick card arrow icon
+.arrow_position {
+  position: absolute;
+  right: 0;
+}
+
+// Style for set background image to card
+.bg-img-top {
+  background: url('') right top no-repeat, url('') left top no-repeat;
+  background-size: 100%;
+}
+
+.ledger_hover :hover {
+  // background: url('../images/svg/top-left-wave.svg') right bottom -600% no-repeat, url('../images/svg/top-right-wave.svg') left -600% no-repeat;
+  // background-size: 100%;
+  background-color: #a9a2f6;
+  color: white;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 70%;
+  height: 70%;
+}
+
+// Style for map marker infowindow
+.gm-style .gm-style-iw-c {
+  padding: 0px !important;
+}
+
+.gm-style-iw-d {
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+.gm-style-iw-c {
+  max-height: 500px !important;
+}
+.iwul {
+  list-style-type: square;
+}
+.iwul li {
+  margin-bottom: 7px;
+}
+
+// style for data table heading
+.rdt_Table .rdt_TableHead .rdt_TableHeadRow {
+  min-height: 45px;
+  font-weight: bold;
+  // background-color: rgb(255, 255, 255);
+}
+// .rdt_Table .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol:first-child .rdt_TableCol_Sortable {
+//   padding-left: 16px;
+// }
+
+// style for data table cell padding
+.rdt_Table .rdt_TableBody .rdt_TableRow .rdt_TableCell {
+  padding-left: 0px;
+}
+.rdt_Table .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol:first-child {
+  padding-left: 16px;
+}
+.rdt_Table .rdt_TableBody .rdt_TableRow .rdt_TableCell:first-child {
+  padding-left: 16px;
+}
+
+// style for table row
+.rdt_Table .rdt_TableBody .rdt_TableRow {
+  outline: none;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+.rdt_Table .rdt_TableBody .rdt_TableRow {
+  transition-property: color, background;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+.rdt_Table .rdt_TableBody .rdt_TableRow:nth-child(even) {
+  background-color: var(--even-row-bg-color);
+}
+.rdt_Table .rdt_TableBody .rdt_TableRow:hover {
+  // background-color: rgba(0, 136, 255, 0.237);
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  // border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+// Style for left side legend button
+.left_side_legend_dv {
+  position: absolute;
+  top: 40%;
+  left: -200px;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+}
+.left_side_legend_dv .legend {
+  position: relative;
+  right: -40px;
+  height: 40px;
+  background: #fff;
+  transition: 0.5s;
+  margin-bottom: 5px;
+}
+.left_side_legend_dv .legend div {
+  display: inline-block;
+}
+.left_side_legend_dv .legend .legend_text {
+  width: 150px;
+  height: 40px;
+  padding-top: 7px;
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.left_side_legend_dv .legend .legend_icon {
+  background: #9bb3d2;
+  width: 40px;
+  height: 40px;
+  float: right;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.left_side_legend_dv .legend:hover {
+  right: -190px;
+}
+
+// Style for left side legend button
+.right_side_legend_dv {
+  position: absolute;
+  background: red;
+  top: 50%;
+  right: -200px;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+}
+.right_side_legend_dv .legend {
+  position: relative;
+  right: 40px;
+  height: 40px;
+  background: #fff;
+  transition: 0.5s;
+  margin-bottom: 5px;
+}
+.right_side_legend_dv .legend div {
+  display: inline-block;
+}
+.right_side_legend_dv .legend .legend_text {
+  width: 150px;
+  height: 40px;
+  float: right;
+  padding-top: 7px;
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.right_side_legend_dv .legend .legend_icon {
+  background: #9bb3d2;
+  width: 40px;
+  height: 40px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.right_side_legend_dv .legend:hover {
+  right: 190px;
+}
+
+// // Logo font color
+// .log_color {
+//   color: rgb(226, 74, 63);
+//   margin-left: -5px;
+// }
+
+.select__menu {
+  z-index: 2 !important;
+}
+
+.dVgdrY::-webkit-scrollbar,
+.webi_scroller::-webkit-scrollbar,
+.select__menu::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.dVgdrY::-webkit-scrollbar-track,
+.webi_scroller::-webkit-scrollbar-track,
+.select__menu::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+}
+.dVgdrY::-webkit-scrollbar-thumb,
+.webi_scroller::-webkit-scrollbar-thumb,
+.select__menu::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.dVgdrY::-webkit-scrollbar-thumb:hover,
+.webi_scroller::-webkit-scrollbar-thumb:hover,
+.select__menu::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+// style to show vertical scroller in table
+.dVgdrY {
+  overflow-y: scroll !important;
+}
+
+// style for MDAS command floating
+.meter_command_floating {
+  position: absolute;
+  width: calc(100% - 255px);
+  top: 80px;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 5px 5px -5px #ccc;
+  transition: 0.3s;
+}
+.sidebar-collapsed {
+  position: absolute;
+  width: calc(100% - 85px);
+  top: 80px;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 5px 5px -5px #ccc;
+  transition: 0.3s;
+}
+.sidebar-collapsed .notch,
+.meter_command_floating .notch {
+  position: absolute;
+  bottom: -25px;
+  left: 48%;
+  height: 25px;
+  width: 40px;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 0;
+  box-shadow: 0 5px 5px #ccc;
+}
+.sidebar-collapsed .notch .ChevronDown_ico,
+.meter_command_floating .notch .ChevronDown_ico {
+  position: relative;
+  animation-name: down_slide;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes down_slide {
+  0% {
+    top: -1.5px;
+  }
+  25% {
+    top: 1.5px;
+  }
+  50% {
+    top: 3px;
+  }
+  75% {
+    top: 1.5px;
+  }
+  100% {
+    top: -1.5px;
+  }
+}
+
+.map {
+  position: relative;
+}
+
+// Style for connection status
+.con_stat {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+// style for super small text
+.super_small {
+  font-size: 10px;
+}
+.cardhover:hover {
+  box-shadow: 2px 2px 6px #7367f0;
+}
+
+// .refresh_table :hover {
+//   transition: 0.9s;
+//   transform: rotate(360deg);
+//   -webkit-transform: rotate(360deg);
+//   -ms-transform: rotate(360deg);
+// }
+// style for text mid of line
+.text_hr {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+}
+.text_hr::before,
+.text_hr::after {
+  content: '';
+  flex: 1 1;
+  border-bottom: 1px solid #ccc;
+  margin: auto;
+}
+
+// style for alert div
+.alert_dv {
+  position: relative;
+  height: 76%;
+}
+
+// Style for card on hover
+.cardHover:hover {
+  box-shadow: 2px 2px 10px #7367f0;
+}
+
+// Style for the status circle
+.circle {
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+}
+
+.modal_size {
+  max-width: 95% !important;
+}
+
+.wizard_btn {
+  background: #fff !important;
+  // box-shadow: 2px 2px 5px #ccc;
+}
+
+.wizard_btn:hover {
+  // background: #ededf8 !important;
+  box-shadow: 0px 0px 0px #fff !important;
+}
+
+.wizard_btn:focus {
+  background: #ffffff !important;
+  box-shadow: 0px 0px 0px #fff !important;
+}
+
+// Style for box shadow on coliving health portal
+.tab_active {
+  box-shadow: 5px 10px 10px #ccc;
+  border-bottom: 2px solid #7367f0;
+}
+
+// Style for the table sorting arrow
+.sorting_overlap {
+  width: auto;
+  // position: absolute;
+  left: 0;
+  top: 11px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.not_allowed {
+  cursor: not-allowed;
+  // color: grey;
+}
+.page-item.next.disabled .page-link {
+  cursor: not-allowed;
+  color: #6c757d;
+  pointer-events: none;
+}
+.table-wrapper {
+  overflow-x: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.table-wrapper
+  .rdt_Table
+  .rdt_TableHead
+  .rdt_TableHeadRow
+  .rdt_TableCol:nth-child(1) {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #ffffff;
+}
+.table-wrapper
+  .rdt_Table
+  .rdt_TableHead
+  .rdt_TableHeadRow
+  .rdt_TableCol:nth-child(2) {
+  position: sticky;
+  left: 90px;
+  border-right: solid 2px #e6e6e6;
+  z-index: 2;
+  background-color: #ffffff;
+}
+
+.table-wrapper
+  .rdt_Table
+  .rdt_TableHead
+  .rdt_TableHeadRow
+  .rdt_TableCol:nth-child(3) {
+  padding-left: 15px;
+}
+.table-wrapper
+  .rdt_Table
+  .rdt_TableBody
+  .rdt_TableRow
+  .rdt_TableCell:nth-child(1) {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  flex: 1;
+  background-color: #fff;
+}
+.table-wrapper
+  .rdt_Table
+  .rdt_TableBody
+  .rdt_TableRow
+  .rdt_TableCell:nth-child(2) {
+  position: sticky;
+  left: 90px;
+  z-index: 4;
+  flex: 1;
+  border-right: solid 2px #e6e6e6;
+  background-color: #fff;
+}
+.table-wrapper
+  .rdt_Table
+  .rdt_TableBody
+  .rdt_TableRow
+  .rdt_TableCell:nth-child(3) {
+  padding-left: 15px;
+}
+
+.table-wrapper
+  .rdt_Table
+  .rdt_TableBody
+  .rdt_TableRow:nth-child(even)
+  .rdt_TableCell:nth-child(n + 1) {
+  background-color: var(--even-row-bg-color);
+}
+// .kmbVPi {
+//   // white-space: pre-line !important;
+//   white-space: normal !important;
+//   overflow: visible !important;
+
+// }
+
+@media only screen and (max-width: 600px) {
+  .table-wrapper {
+    width: 100%;
+  }
+
+  .table-wrapper
+    .rdt_Table
+    .rdt_TableHead
+    .rdt_TableHeadRow
+    .rdt_TableCol:nth-child(1),
+  .table-wrapper
+    .rdt_Table
+    .rdt_TableHead
+    .rdt_TableHeadRow
+    .rdt_TableCol:nth-child(2) {
+    position: static;
+    left: auto;
+    z-index: auto;
+    border-right: none;
+    background-color: transparent;
+  }
+
+  .table-wrapper
+    .rdt_Table
+    .rdt_TableHead
+    .rdt_TableHeadRow
+    .rdt_TableCol:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .table-wrapper
+    .rdt_Table
+    .rdt_TableBody
+    .rdt_TableRow
+    .rdt_TableCell:nth-child(1),
+  .table-wrapper
+    .rdt_Table
+    .rdt_TableBody
+    .rdt_TableRow
+    .rdt_TableCell:nth-child(2) {
+    position: static;
+    left: auto;
+    z-index: auto;
+    flex: initial;
+    border-right: none;
+    background-color: transparent;
+  }
+
+  .table-wrapper
+    .rdt_Table
+    .rdt_TableBody
+    .rdt_TableRow
+    .rdt_TableCell:nth-child(3) {
+    padding-left: 0;
+  }
+}
+// command retry config icon size
+.icon-fixed-size {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+}
+// meter and command dropdown
+.bs-stepper .step-trigger {
+  background-color: transparent !important;
+}
+// Extra Small devices (landscape phones, 300px and up)
+@media (min-width: 300px) {
+  .forground {
+    top: 65px;
+    left: 0;
+    width: 100%;
+  }
+  .gis_resp {
+    width: 110%;
+    margin-left: -5%;
+  }
+  .table_header {
+    margin-bottom: 10px !important;
+    margin-top: 0;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .forground {
+    top: 65px;
+    left: 0;
+    width: 100%;
+  }
+  .gis_resp {
+    width: 110%;
+    margin-left: -5%;
+  }
+  .table_header {
+    margin-bottom: 10px !important;
+    margin-top: 0;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .forground {
+    top: 100px;
+    left: 250px;
+    width: 80%;
+  }
+  .gis_resp {
+    width: 100%;
+    margin-left: 0;
+  }
+  .table_header {
+    margin-bottom: 0 !important;
+    margin-top: 6px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .forground {
+    top: 100px;
+    left: 250px;
+    width: 80%;
+  }
+  .gis_resp {
+    width: 100%;
+    margin-left: 0;
+  }
+  .table_header {
+    margin-bottom: 0 !important;
+    margin-top: 6px;
+  }
+}
+
+// Medium large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .forground {
+    top: 100px;
+    left: 500px;
+    width: 75%;
+  }
+  .gis_resp {
+    width: 100%;
+    margin-left: 0;
+  }
+  .table_header {
+    margin-bottom: 0 !important;
+    margin-top: 6px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1400px) {
+  .forground {
+    top: 100px;
+    left: 500px;
+    width: 80%;
+  }
+  .gis_resp {
+    width: 100%;
+    margin-left: 0;
+  }
+  .table_header {
+    margin-bottom: 0 !important;
+    margin-top: 6px;
+  }
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+.gap-2 {
+  gap: 2rem;
+}
+.gap-3 {
+  gap: 3rem;
+}
+.gap-4 {
+  gap: 4rem;
+}
+.gap-5 {
+  gap: 5rem;
+}
+
+.spin-360 {
+  animation: spin 500ms infinite ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
