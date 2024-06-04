@@ -20,6 +20,7 @@ const Login = () => {
   const [response] = useState()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [data, setData] = useState()
   const {
     register,
     formState: { errors },
@@ -36,7 +37,12 @@ const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false)
   // const { isLoading } = response
 
+  const onFinish = (values) => {
+    onSubmit(values);
+  };
+
   const onSubmit = (data) => {
+    console.log(data)
     login(data)
       .then((response) => {
         if (response?.data?.responseCode === 200) {
@@ -119,9 +125,7 @@ const Login = () => {
               </Text>
               <Form
                 className='auth-login-form mt-2'
-                onFinish={() => {
-                  console.log("heeeeeeeeeello")
-                }}
+                onFinish={(data) => onFinish(data)}
               >
                 <Form.Item
                   name='email'

@@ -2,8 +2,7 @@ import axios from "axios"
 
 import { jwtDecode } from "jwt-decode"
 import { toast } from "react-toastify"
-import { isEmpty } from "../utils/commonFunction"
-import { removeTokenData } from "../utils/commonFunction"
+import { isEmpty, removeTokenData } from "../utils/commonFunction"
 import { getAuthUserId, getAuthtoken } from "../utils/tokens"
 
 const webp_support = () => {
@@ -11,10 +10,10 @@ const webp_support = () => {
     return false
   }
   try {
-    var elem = document.createElement("canvas")
+    const elem = document.createElement("canvas")
     if (!!(!isEmpty(elem) && elem.getContext && elem.getContext("2d"))) {
       // was able or not to get WebP representation
-      return elem.toDataURL("image/webp").indexOf("data:image/webp") == 0
+      return elem.toDataURL("image/webp").indexOf("data:image/webp") === 0
     } else {
       // very old browser like IE 8, canvas not supported
       return false
@@ -72,7 +71,7 @@ export const prepareHeaders = (headers) => {
 }
 
 // Axios instance configuration
-let rawInstanceConfig = {
+const rawInstanceConfig = {
   baseURL: process.env.REACT_APP_BASE_URL,
   timeout: 60000,
   withCredentials: true,
@@ -100,7 +99,7 @@ rawInstance.interceptors.request.use(
   }
 )
 
-let tokenInstanceConfig = {
+const tokenInstanceConfig = {
   baseURL: process.env.REACT_APP_BASE_URL,
   timeout: 60000,
   headers: {
@@ -117,7 +116,7 @@ export const tokenInstance = axios.create(tokenInstanceConfig)
 
 tokenInstance.interceptors.request.use((tokenInstanceConfig) => {
   tokenInstanceConfig.headers.authtoken = getAuthtoken()
-  let userId = getAuthUserId()
+  const userId = getAuthUserId()
   if (userId) {
     tokenInstanceConfig.headers.authuserid = userId
   }
