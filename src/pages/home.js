@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider trigger={null} collapsible collapsed={collapsed} theme='light'>
         <div className='demo-logo-vertical  d-flex flex-row'>
           <img src={logo} alt='Login V2' />
           <h2 className='brand-text mx-1'>AVDHAAN</h2>
@@ -53,7 +53,7 @@ const Home = () => {
           style={{
             margin: "24px 16px",
             padding: 24,
-            minHeight: "100vh",
+            minHeight: "calc(100vh-80px)",
             background: colorBgContainer,
             borderRadius: borderRadiusLG
           }}

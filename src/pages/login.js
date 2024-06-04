@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import classnames from "classnames"
-import { Row, Col, CardTitle, CardText, Form, FormGroup, Label, Input, Button } from "reactstrap"
+import { Row, Col, Card, Typography, Form, Input, Button, message } from "antd"
 import { useForm } from "react-hook-form"
-import { Eye, EyeOff } from "react-feather"
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
 
 import "../styles/page-auth.scss"
 import "../../src/styles/login.scss"
@@ -11,10 +11,11 @@ import { login } from "../services/apis/login"
 import { jwtDecode } from "jwt-decode"
 import { useDispatch } from "react-redux"
 import { handleLogin } from "../redux/actions/login"
-import { AppstoreOutlined } from "@ant-design/icons"
-import { Award, Circle } from "react-feather"
+
 import { setSessionData } from "../redux/actions"
-import { message } from "antd"
+
+const { Title, Text } = Typography
+
 const Login = () => {
   const [response] = useState()
   const navigate = useNavigate()
@@ -86,17 +87,17 @@ const Login = () => {
             onClick={(e) => e.preventDefault()}
           >
             <img src={`logo.svg`} alt='Avdhaan' style={{ height: "40px", width: "40px" }} />
-            <h1 className='brand-text ' style={{ color: "#FFFFFF" }}>
+            <Title level={1} className='brand-text' style={{ color: "#FFFFFF" }}>
               AVDHAAN
-            </h1>
+            </Title>
           </Link>
         </Col>
 
         <Col
           className='d-none d-lg-flex align-items-center p-5'
           style={{ backgroundColor: "rgba(10, 54, 144, 1)" }}
-          lg='8'
-          sm='12'
+          lg={16}
+          sm={12}
         >
           <div className='w-100 d-lg-flex align-items-center justify-content-center px-5'>
             <img className='img-fluid' src={"login.svg"} alt='Login V2' />
@@ -105,92 +106,53 @@ const Login = () => {
 
         <Col
           className='d-flex align-items-center background_image auth-bg px-2 p-lg-5'
-          lg='4'
-          sm='12'
+          lg={8}
+          sm={12}
         >
-          <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
-            <CardTitle tag='h2' className='font-weight-bold mb-1 color: #0A3690'>
-              Welcome to POLARIS!
-            </CardTitle>
-            <CardText className='mb-2 color: #808080'>Please sign-in to your account.</CardText>
-            <Form className='auth-login-form mt-2' onSubmit={handleSubmit(onSubmit)}>
-              <FormGroup>
-                <Label className='form-label' for='login-email'>
-                  Email
-                </Label>
-                <Input
-                  autoFocus
-                  type='email'
-                  id='login-email'
-                  name='login-email'
-                  placeholder='user@example.com'
-                  className={classnames({
-                    "is-invalid": errors["username"]
-                  })}
-                  innerRef={emailRef}
-                  {...registerEmail}
-                />
-              </FormGroup>
+          <Col className='px-xl-2 mx-auto' sm={16} md={12} lg={24}>
+            <Card>
+              <Title level={2} className='font-weight-bold mb-1' style={{ color: "#0A3690" }}>
+                Welcome to POLARIS!
+              </Title>
+              <Text className='mb-2' style={{ color: "#808080" }}>
+                Please sign-in to your account.
+              </Text>
+              <Form
+                className='auth-login-form mt-2'
+                onFinish={() => {
+                  console.log("heeeeeeeeeello")
+                }}
+              >
+                <Form.Item
+                  name='email'
+                  rules={[{ required: true, message: "Please input your Email!" }]}
+                >
+                  <Input autoFocus type='email' placeholder='user@example.com' />
+                </Form.Item>
 
-              <FormGroup>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <Label className='form-label' for='login-password'>
-                    Password
-                  </Label>
+                <Form.Item
+                  name='password'
+                  rules={[{ required: true, message: "Please input your Password!" }]}
+                >
+                  <Input.Password
+                    placeholder='Enter Password'
+                    iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
+                  />
+                </Form.Item>
+
+                <Form.Item>
                   <Link className='text-decoration-none' to='/forgot-password'>
                     <small>Forgot Password?</small>
                   </Link>
-                </div>
-                <div className='position-relative d-flex align-items-center'>
-                  <Input
-                    type={passwordVisible ? "text" : "password"}
-                    id='login-password'
-                    name='login-password'
-                    placeholder='Enter Password'
-                    className={classnames({
-                      "is-invalid": errors["password"]
-                    })}
-                    innerRef={passwordRef}
-                    {...registerPassword}
-                  />
-                  {!errors["password"] && (
-                    <>
-                      {passwordVisible ? (
-                        <EyeOff
-                          size={14}
-                          className='position-absolute end-0 me-2 cursor-pointer'
-                          onClick={() => setPasswordVisible(false)}
-                        />
-                      ) : (
-                        <Eye
-                          size={14}
-                          className='position-absolute end-0 me-2 cursor-pointer '
-                          onClick={() => setPasswordVisible(true)}
-                        />
-                      )}
-                    </>
-                  )}
-                </div>
-              </FormGroup>
+                </Form.Item>
 
-              <Button
-                type='submit'
-                color='primary'
-                block
-                // disabled={isLoading}
-              >
-                {/* {isLoading ? ( */}
-                {/* <span */}
-                {/* className='spinner-border spinner-border-sm'
-                  role='status'
-                  aria-hidden='true'
-                ></span> */}
-                sign in
-                {/* ) : (
-                  "Sign in"
-                )} */}
-              </Button>
-            </Form>
+                <Form.Item>
+                  <Button type='primary' htmlType='submit' block>
+                    Sign In
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Card>
           </Col>
         </Col>
       </Row>

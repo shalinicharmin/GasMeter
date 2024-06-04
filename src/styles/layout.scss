@@ -1,5 +1,18 @@
+@import '../styles/variables.scss';
+body{
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+    line-height: 1.2;
+    color: #5e5873 ;
+}
+
 main {
   overflow-y: scroll;
+  &.ant-layout-content{
+    min-height: calc(100vh - 120px);
+    overflow: hidden;
+  }
+  
 }
 .layout {
   display: grid;
