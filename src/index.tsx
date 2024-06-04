@@ -5,7 +5,7 @@ import store from './redux/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css'; // Don't forget to import the CSS
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import "./@core/scss/react/libs/flatpickr/flatpickr.scss"
@@ -28,7 +28,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </Provider>
   </React.StrictMode>
 );

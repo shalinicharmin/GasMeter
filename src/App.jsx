@@ -5,6 +5,7 @@ import Login from './pages/login';
 // import HesUtility from './pages/utility/module/hes';
 import LayoutWrapper from './components/layout/LayoutWrapper';
 import Home from "./pages/home"
+import Error from './pages/error';
 
 const App = () => {
 

@@ -5,7 +5,6 @@ import { Row, Col, CardTitle, CardText, Form, FormGroup, Label, Input, Button } 
 import { useForm } from "react-hook-form"
 import { Eye, EyeOff } from "react-feather"
 
-import { toast } from "react-toastify"
 import "../styles/page-auth.scss"
 import "../../src/styles/login.scss"
 import { login } from "../services/apis/login"
@@ -15,6 +14,7 @@ import { handleLogin } from "../redux/actions/login"
 import { AppstoreOutlined } from "@ant-design/icons"
 import { Award, Circle } from "react-feather"
 import { setSessionData } from "../redux/actions"
+import { message } from "antd"
 const Login = () => {
   const [response] = useState()
   const navigate = useNavigate()
@@ -39,7 +39,8 @@ const Login = () => {
     login(data)
       .then((response) => {
         if (response?.data?.responseCode === 200) {
-          toast("Login Successfull", { hideProgressBar: true, type: "success" })
+          message.success("Login Successful")
+          // toast("Login Successfull", { hideProgressBar: true, type: "success" })
           localStorage.setItem("token", response?.data?.data?.result?.access)
           localStorage.setItem("uniqueId", response?.data?.data?.result?.unique_id)
           const data = {
@@ -47,50 +48,16 @@ const Login = () => {
             accessToken: response?.data?.data?.result.access,
             refreshToken: response?.data?.data?.result.refresh
           }
-          // jwtDecode(localStorage.getItem("accessToken")).userData
 
-          // Icon mapping
-          const iconMapping = {
-            Award: <Award />,
-            Circle: <Circle />,
-            // Add other icons as needed
-            // Default icon
-            default: <AppstoreOutlined />
-          }
-          const convertData = (data, keyPrefix = "") => {
-            return data.map((item, index) => {
-              const key = `${keyPrefix}${index + 1}`
-              const newItem = {
-                key: item.title,
-                icon: iconMapping[item.icon] || iconMapping.default, // Assuming a static icon for simplicity
-                label: item.title,
-                navLink: item.navLink
-              }
-
-              if (item.children) {
-                newItem.children = convertData(item.children, `${key}`)
-              }
-
-              return newItem
-            })
-          }
-
-          // Transform the input data
-          const convertedData = convertData(
-            jwtDecode(localStorage.getItem("accessToken")).userData.access
-          )
-          console.log(convertedData)
-          console.log(jwtDecode(localStorage.getItem("accessToken")).userData)
           dispatch(handleLogin(data))
-          dispatch(setSessionData(convertedData))
+          dispatch(setSessionData(jwtDecode(localStorage.getItem("accessToken")).userData.access))
           navigate("utility/lpdd/hes")
         } else if (response?.isError) {
-          toast("Invalid Credentials", { hideProgressBar: true, type: "error" })
+          // toast("Invalid Credentials", { hideProgressBar: true, type: "error" })
         }
       })
       .catch()
   }
-  useEffect(() => {}, [response])
 
   // const fetchData = async (params) => {
   //   return await useJwt

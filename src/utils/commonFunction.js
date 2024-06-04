@@ -1,8 +1,8 @@
-import { toast } from "react-toastify"
 import dayjs from "./dayjs"
 import { jwtDecode } from "jwt-decode"
 
 import { getAuthUserId } from "./tokens"
+import { Award, Circle } from "react-feather"
 
 export const loadScriptByURL = (id, url, callback) => {
   const isScriptExist = document.getElementById(id)
@@ -1026,4 +1026,29 @@ export const isUserLoggedIn = () => {
   return localStorage.getItem("accessToken")
 
   // return localStorage.getItem('userData') && localStorage.getItem(useJwt.jwtConfig.storageTokenKeyName)
+}
+
+const iconMapping = {
+  Award: <Award size={18} />,
+  Circle: <Circle size={15} />,
+  // Add other icons as needed
+  // Default icon
+  default: ""
+}
+export const convertData = (data, keyPrefix = "") => {
+  return data?.map((item, index) => {
+    const key = `${keyPrefix}${index + 1}`
+    const newItem = {
+      key: item.title,
+      icon: iconMapping[item.icon] || iconMapping.default, // Assuming a static icon for simplicity
+      label: item.title,
+      navLink: item.navLink
+    }
+
+    if (item.children) {
+      newItem.children = convertData(item.children, `${key}`)
+    }
+
+    return newItem
+  })
 }
