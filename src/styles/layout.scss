@@ -9,16 +9,26 @@ body{
 main {
   overflow-y: scroll;
   &.ant-layout-content{
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 10px);
     overflow: hidden;
   }
   
 }
+
 .layout {
   display: grid;
   // grid-template-columns: auto 1fr;
   // grid-template-rows: 80px 1fr;
   height: 100vh;
+  
+}
+layout .background_image {
+  background-color: #5e5873!important;
+  // background-image: url("../assets/images/login/loginDesign.svg"),
+  //   url("../assets/images/login/gradients-04.svg");
+  // background-position: top right, bottom left;
+  // background-repeat: no-repeat, no-repeat;
+  // background-size: 500px 500px, 500px 500px; /* Adjust the size as needed */
 }
 .aside {
   display: block;

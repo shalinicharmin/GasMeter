@@ -10,11 +10,11 @@ const Error = () => {
 
   return (
     <div className='misc-wrapper'>
-      <a className='brand-logo' href='/'>
+      {/* <a className='brand-logo' href='/'>
         <img src={logo_source} alt='Login V2' />
         <h2 className='brand-text text-primary ml-1 pt-1'>AVDHAAN</h2>
-      </a>
-      <div className='misc-inner p-2 p-sm-3'>
+      </a> */}
+      <div className='misc-inner  p-sm-3'>
         <div className='w-100 text-center '>
           <h2 className='mb-1'>Page Not Found 🕵🏻‍♀️</h2>
           <p className='mb-3'>Oops! The requested URL was not found on this server.</p>

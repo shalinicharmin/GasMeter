@@ -126,7 +126,7 @@ export const timeDifferenceText = (fromDate, toDate = null, returnDiffInDays = n
     const diffInHours = dayjs.duration(toDate.diff(fromDate)).asHours()
 
     if (diffInHours < 24) {
-      difference = parseInt(diffInHours) + "h ago"
+      difference = `${parseInt(diffInHours)}h ago`
     } else {
       difference = difference.split("a day").join("1d")
       difference = difference.split(" days").join("d")
@@ -137,13 +137,13 @@ export const timeDifferenceText = (fromDate, toDate = null, returnDiffInDays = n
 
     if (diffMonth < 1) {
       difference = fromDate.diff(toDate, "days")
-      difference = Math.abs(difference) + "d ago"
+      difference = `${Math.abs(difference)}d ago`
     }
   }
 
   if (returnDiffInDays === true) {
     difference = fromDate.diff(toDate, "days")
-    difference = Math.abs(difference) + "d"
+    difference = `${Math.abs(difference)} d`
   }
   return difference
 }
@@ -171,14 +171,14 @@ export const getOnlineStatus = (spModelObject) => {
   const today = new Date()
   const dayOfWeek = today.getDay()
   const column_day = MODEL_AVAIL_COLS[dayOfWeek]
-  const open_time_column = column_day + "_open_time"
+  const open_time_column = `${column_day} _open_time`
 
   let response = {
     dot_color: "green",
     outline_color: "none",
     label_color: "green",
     label_text: "Available",
-    activity_text: "Active " + timeDifferenceText(msglogtime)
+    activity_text: `Active ${timeDifferenceText(msglogtime)}`
   }
 
   if (objModelAvailablity !== undefined) {
@@ -188,7 +188,7 @@ export const getOnlineStatus = (spModelObject) => {
         outline_color: "none",
         label_color: "gray",
         label_text: "Limited",
-        activity_text: "Active " + timeDifferenceText(msglogtime)
+        activity_text: `Active ${timeDifferenceText(msglogtime)}`
       }
     }
   }
@@ -213,7 +213,7 @@ export const getOnlineStatus = (spModelObject) => {
       outline_color: "none",
       label_color: "red",
       label_text: "Unavailable",
-      activity_text: "Active " + timeDifferenceText(msglogtime)
+      activity_text: `Active ${timeDifferenceText(msglogtime)}`
     }
   }
   return response
@@ -282,9 +282,11 @@ export const convertData = (data, keyPrefix = "") => {
     const newItem = {
       key: item.title,
       icon: iconMapping[item.icon] || iconMapping.default, // Assuming a static icon for simplicity
-      label: <a href={`#${item.navLink}`} rel="noopener noreferrer">
-        {item.title}
-      </a>,
+      label: (
+        <a href={`#${item.navLink}`} rel='noopener noreferrer'>
+          {item.title}
+        </a>
+      ),
       navLink: item.navLink
     }
 
