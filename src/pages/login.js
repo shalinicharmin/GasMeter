@@ -37,10 +37,6 @@ const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false)
   // const { isLoading } = response
 
-  const onFinish = (values) => {
-    onSubmit(values);
-  };
-
   const onSubmit = (data) => {
     console.log(data)
     login(data)
@@ -65,6 +61,10 @@ const Login = () => {
       })
       .catch()
   }
+
+  const onFinish = (values) => {
+    onSubmit(values);
+  };
 
   // const fetchData = async (params) => {
   //   return await useJwt
@@ -93,7 +93,7 @@ const Login = () => {
             onClick={(e) => e.preventDefault()}
           >
             <img src={`logo.svg`} alt='Avdhaan' style={{ height: "40px", width: "40px" }} />
-            <Title level={1} className='brand-text' style={{ color: "#FFFFFF" }}>
+            <Title level={1} className='brand-text' style={{ color: "#FFFFFF", wordBreak: 'normal' }}>
               AVDHAAN
             </Title>
           </Link>
@@ -128,7 +128,7 @@ const Login = () => {
                 onFinish={(data) => onFinish(data)}
               >
                 <Form.Item
-                  name='email'
+                  name='username'
                   rules={[{ required: true, message: "Please input your Email!" }]}
                 >
                   <Input autoFocus type='email' placeholder='user@example.com' />

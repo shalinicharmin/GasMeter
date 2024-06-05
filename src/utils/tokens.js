@@ -1,5 +1,5 @@
 import dayjs from "./dayjs"
-import { getCookie, isEmpty, jsonParse } from "./commonFunction"
+import { isEmpty, jsonParse } from "./commonFunction"
 
 // session Permission Tokens
 
@@ -44,7 +44,7 @@ export const getTokenData = () => {
         setTokenData(sessionStorageTokenData)
         return jsonParse(sessionStorage.getItem("profile"))
       }
-    } catch (error) {}
+    } catch (error) { }
   }
   return null
 }
@@ -53,11 +53,11 @@ export const getAuthtoken = () => {
   return getTokenData()?.AuthToken
 }
 export const getGenderPreference = (withAll = false) => {
-  let gender = getCookie("selectedgender")
-  if (gender === "all" && withAll == false) {
-    gender = ""
-  }
-  return gender
+  // let gender = getCookie("selectedgender")
+  // if (gender === "all" && withAll == false) {
+  //   gender = ""
+  // }
+  // return gender
 }
 
 export const updateGenderPreferenceInSessionData = (new_gender_preference) => {

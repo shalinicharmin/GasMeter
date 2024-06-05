@@ -282,7 +282,9 @@ export const convertData = (data, keyPrefix = "") => {
     const newItem = {
       key: item.title,
       icon: iconMapping[item.icon] || iconMapping.default, // Assuming a static icon for simplicity
-      label: item.title,
+      label: <a href={`#${item.navLink}`} rel="noopener noreferrer">
+        {item.title}
+      </a>,
       navLink: item.navLink
     }
 

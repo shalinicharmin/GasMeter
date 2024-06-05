@@ -1,0 +1,5 @@
+.recharge-col-height {
+  height: 82vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

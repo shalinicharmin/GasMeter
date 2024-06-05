@@ -7,6 +7,7 @@ import LayoutWrapper from './components/layout/LayoutWrapper';
 import Home from "./pages/home"
 import Error from './pages/error';
 import SBPDCLUtility from './pages/Utility/SBPDCL';
+import LPDDUtility from './pages/Utility/LPDD';
 
 const App = () => {
 
@@ -14,16 +15,22 @@ const App = () => {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-         <Route
-         path="utility/sbpdcl/hes"
+        <Route
+          path="utility/sbpdcl/hes"
           element={<LayoutWrapper children={<SBPDCLUtility />} />}
+        />
+        <Route path="/" element={<Login />} />
+
+        <Route
+          path="utility/lpdd/hes"
+          element={<LayoutWrapper children={<LPDDUtility />} />}
         />
         {/* <Route
           path="utility/sbpdcl/hes"
           element={<LayoutWrapper children={<HesUtility />} />}
         />
 
-        <Route path="forgot-password" element={<ForgotPassword />} /> */} 
+        <Route path="forgot-password" element={<ForgotPassword />} /> */}
         <Route
           path="utility/lpdd/hes"
           element={<LayoutWrapper children={<Home />} />}
