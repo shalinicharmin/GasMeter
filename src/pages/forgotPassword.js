@@ -8,6 +8,7 @@ import { toast } from "react-toastify"
 import { Row, Col, Card, Form, Input, Button, Typography } from "antd"
 // import { Link } from "react-router-dom"
 import { LeftOutlined } from "@ant-design/icons"
+import { optGenrate } from "../services/apis/auth"
 
 const { Title, Paragraph } = Typography
 // import {
@@ -74,7 +75,7 @@ const ForgotPassword = () => {
       params.email = _email
       params.typ = "Password change"
 
-      generateOtp(params)
+      optGenrate(params)
     } catch (err) {}
   }
 

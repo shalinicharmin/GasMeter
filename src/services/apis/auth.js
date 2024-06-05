@@ -14,3 +14,16 @@ export const login = async (body) => {
     console.error("Error fetching data:", error)
   }
 }
+
+export const optGenrate = async (body) => {
+  try {
+    const response = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/${process.env.REACT_APP_LOGIN_URL}/users/otp-generation`,
+      body
+    )
+    console.log(response.data.data.result)
+    return response
+  } catch (error) {
+    console.error("Error fetching data:", error)
+  }
+}

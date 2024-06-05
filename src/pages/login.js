@@ -7,7 +7,7 @@ import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons"
 
 import "../styles/page-auth.scss"
 import "../../src/styles/login.scss"
-import { login } from "../services/apis/login"
+import { login } from "../services/apis/auth"
 import { jwtDecode } from "jwt-decode"
 import { useDispatch } from "react-redux"
 import { handleLogin } from "../redux/actions/login"
