@@ -1,0 +1,21 @@
+/* Create a new CSS file (e.g., styles.css) or add this to your existing CSS */
+.ant-tabs-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  
+  .ant-tabs-tab {
+    flex-grow: 1 !important;
+    flex-basis: 0 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+  }
+  
+  .ant-tabs-tab .ant-tabs-tab-btn {
+    width: 100% !important;
+    display: inline-block !important;
+    text-align: center !important;
+  }
+  
