@@ -76,7 +76,7 @@ const ForgotPassword = () => {
       params.typ = "Password change"
 
       optGenrate(params)
-    } catch (err) { }
+    } catch (err) {}
   }
 
   // const handlePasswordReset = async () => {
@@ -346,12 +346,25 @@ const ForgotPassword = () => {
             <h1 className='brand-text text-primary ml-1 pt-1'>AVDHAAN</h1>
           </Link>
         </Col>
-        <Col className=' d-none d-lg-flex align-items-center p-5' xs={24} sm={16} md={16} lg={32} style={{background : '#F8F8F8'}}>
+        <Col
+          className=' d-none d-lg-flex align-items-center p-5'
+          xs={24}
+          sm={16}
+          md={16}
+          lg={32}
+          style={{ background: "#F8F8F8" }}
+        >
           <div className='w-100 d-lg-flex align-items-center justify-content-center px-5'>
             <img className='img-fluid' src={"forgot-password-v2.svg"} alt='Forgot password' />
           </div>
         </Col>
-        <Col className='d-flex align-items-center auth-bg px-2 p-lg-5' xs={24} sm={16} md={12} lg={8}>
+        <Col
+          className='d-flex align-items-center auth-bg px-2 p-lg-5'
+          xs={24}
+          sm={16}
+          md={12}
+          lg={8}
+        >
           {enterOtp ? (
             <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
               <Card title='Enter OTP!' className='font-weight-bold mb-1'>
@@ -402,7 +415,7 @@ const ForgotPassword = () => {
               </Card>
             </Col>
           ) : enterPasscode ? (
-            <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='8'>
+            <Col className='px-xl-2 mx-auto' sm='32' md='6' lg='8'>
               <Card title='Reset password!' className='font-weight-bold mb-1'>
                 <Paragraph className='mb-2'>
                   Please insert password and retype to confirm.
@@ -439,7 +452,7 @@ const ForgotPassword = () => {
               </Card>
             </Col>
           ) : (
-            <Col xs={12} sm={8} md={6} lg={24} className='px-xl-2 mx-auto'>
+            <Col xs={24} sm={16} md={24} lg={24} className='px-xl-2 mx-auto'>
               <Title level={2} className='font-weight-bold mb-1'>
                 <Link className='text-decoration-none' to='/forgot-password'>
                   <small>Forgot Password?</small>

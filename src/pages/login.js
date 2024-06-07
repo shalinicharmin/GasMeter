@@ -53,7 +53,8 @@ const Login = () => {
           }
 
           dispatch(handleLogin(data))
-          dispatch(setSessionData(jwtDecode(localStorage.getItem("accessToken")).userData.access))
+          console.log(jwtDecode(localStorage.getItem("accessToken")).userData)
+          dispatch(setSessionData(jwtDecode(localStorage.getItem("accessToken")).userData))
           navigate("utility/lpdd/hes")
         } else if (response?.isError) {
           // toast("Invalid Credentials", { hideProgressBar: true, type: "error" })
@@ -63,8 +64,8 @@ const Login = () => {
   }
 
   const onFinish = (values) => {
-    onSubmit(values);
-  };
+    onSubmit(values)
+  }
 
   // const fetchData = async (params) => {
   //   return await useJwt
@@ -93,7 +94,11 @@ const Login = () => {
             onClick={(e) => e.preventDefault()}
           >
             <img src={`logo.svg`} alt='Avdhaan' style={{ height: "40px", width: "40px" }} />
-            <Title level={1} className='brand-text' style={{ color: "#FFFFFF", wordBreak: 'normal' }}>
+            <Title
+              level={1}
+              className='brand-text'
+              style={{ color: "#FFFFFF", wordBreak: "normal" }}
+            >
               AVDHAAN
             </Title>
           </Link>
@@ -123,10 +128,7 @@ const Login = () => {
               <Text className='mb-2' style={{ color: "#808080" }}>
                 Please sign-in to your account.
               </Text>
-              <Form
-                className='auth-login-form mt-2'
-                onFinish={(data) => onFinish(data)}
-              >
+              <Form className='auth-login-form mt-2' onFinish={(data) => onFinish(data)}>
                 <Form.Item
                   name='username'
                   rules={[{ required: true, message: "Please input your Email!" }]}
